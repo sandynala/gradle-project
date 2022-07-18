@@ -2,7 +2,7 @@ pipeline {
 	agent any
 
        tools {
-                jdk 'JDK 1.11.*'
+        jdk 'JDK 1.11.*'
 		gradle 'gradle'
                 
 	}	
@@ -21,7 +21,8 @@ pipeline {
 	    
 	    stage('Build') {
 		    steps {
-			    sh 'gradle clean package'
+			    sh 'gradle init'
+                sh 'gradle build'
 		    }
 	    }
 	    
