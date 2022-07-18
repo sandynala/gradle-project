@@ -2,7 +2,9 @@ pipeline {
 	agent any
 
        tools {
+                jdk 'JDK 1.11.*'
 		gradle 'gradle'
+                
 	}	
 	
       environment {
