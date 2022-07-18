@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+	agent any
+
+       tools {
+		gradle 'gradle'
+	}	
 	
       environment {
 		 dockerImage = "ashagari/javaapp_$JOB_NAME:$BUILD_NUMBER"
