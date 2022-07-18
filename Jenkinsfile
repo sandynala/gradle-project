@@ -21,15 +21,8 @@ pipeline {
 	    
 	    stage('Build') {
 		    steps {
-			    sh 'gradle init'
+	        sh 'gradle init'
                 sh 'gradle build'
-		    }
-	    }
-	    
-	    stage('Test') {
-		    steps {
-			    echo "Testing..."
-			    sh 'gradle test'
 		    }
 	    }
 	    
