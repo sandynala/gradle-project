@@ -28,21 +28,21 @@ pipeline {
 	    
 	   stage('Build Docker Image ') {
             steps {
-                sh "docker build  -t ${dockerImage} ."
+                sh " sudo docker build  -t ${dockerImage} ."
             }
         }
 
         stage('Docker Run') {
             steps {
-                sh "docker run -dit --name ${dockerContainerName}  ${dockerImage}"
+                sh " sudo docker run -dit --name ${dockerContainerName}  ${dockerImage}"
             }
         }
         stage('Docker Push') {
             steps {
                 withCredentials([string(credentialsId: 'Dockerhub-key', variable: 'dockerPWD')]) {
-                    sh "docker login -u ashagari -p ${dockerPWD}"
+                    sh "sudo docker login -u ashagari -p ${dockerPWD}"
                 }
-                sh "docker push ${dockerImage}"
+                sh "sudo docker push ${dockerImage}"
             }
         }
 
